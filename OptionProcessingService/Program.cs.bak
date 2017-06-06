@@ -1,0 +1,38 @@
+﻿using System;
+using System.Collections.Generic;
+using OptionProcessingService;
+using OptionProcessingService.FeedClient;
+
+namespace OptionProcessingService
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            DataFeedProcessor.Start();
+            //DataFeedProcessor.SubscribeSymbolList("AAPL");
+
+            System.Threading.Thread.Sleep(1000 * 10);
+            DataFeedProcessor.SubscribeSymbolList("AAPL");
+            DataFeedProcessor.SubscribeSymbolList("EUR/USD");
+            DataFeedProcessor.SubscribeSymbolList("CDIC");
+            DataFeedProcessor.SubscribeSymbolList("YHOO");
+            //System.Threading.Thread.Sleep(1000 * 5);
+            //DataFeedProcessor.UnSubscribeSymbolList("AAPL");
+
+            string serverIP = System.Configuration.ConfigurationSettings.AppSettings["server_ip"];
+            int serverPort = Int32.Parse(System.Configuration.ConfigurationSettings.AppSettings["server_port"]);
+
+            Console.WriteLine("IP: {0}, Port: {1}", serverIP, serverPort);
+            Server server = new Server(serverIP, serverPort);
+            server.Start();
+
+            Console.WriteLine("Started. Press Enter to exit.");
+            
+
+            Console.Read();
+        }
+    }
+
+    
+}

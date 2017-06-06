@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  
+  <appSettings>
+    <add key="server_ip" value="127.0.0.1" />
+    <add key="server_port" value="20017" />
+    <add key="db_data_source" value="SAADI" />
+    <!--<add key="db_data_source" value="optionbanque.cdtagyjn1ipc.us-west-2.rds.amazonaws.com" />
+    <add key="db_UserName" value="Administrator" />
+    <add key="db_Password" value="*yPj;VVkA81" />-->
+    <!--<add key="db_data_source" value="VALUED-OV46V0EI\SQLEXPRESS" />-->
+    <add key="db_init_catalog" value="OPSDB_DEV" />
+    <!--<add key="db_data_source" value="optionbanque.cdtagyjn1ipc.us-west-2.rds.amazonaws.com" />
+    <add key="db_init_catalog" value="OPSDB" />
+    <add key="db_UserName" value="Administrator" />
+    <add key="db_Password" value="*yPj;VVkA81" />-->
+    <!--<add key="dataserver_IP" value="127.0.0.1" />
+    <add key="dataserver_port" value="4504" />
+    <add key="dataserver_username" value="user" />
+    <add key="dataserver_password" value="user" />-->
+    <add key="dataserver_IP" value="54.70.16.159" />
+    <add key="dataserver_port" value="2012" />
+    <add key="dataserver_username" value="shashi1" />
+    <add key="dataserver_password" value="shashi1" />
+    <add key="SettlementPriceDuration" value="5" />
+    <add key="MinNumberOfFeed" value="5" />
+    <add key="PriceDifferenece" value="0.01" />
+    <add key="StopExpiryLimitinMinutes" value="1" />
+    <add key="FeedName" value="Simulation DataFeed" />
+    <!--<add key="FeedName" value="DDF" />-->
+    <!--<add key="FeedName" value="DDFClient" />
+    <add key="FeedName" value="Simulation DataFeed" />
+    <add key="ClientSettingsProvider.ServiceUri" value="" />-->
+  </appSettings>
+
+  <system.serviceModel>
+    <bindings>
+      <netTcpBinding>
+        <binding name="NetTcpBinding_IWCFService">
+          <security mode="None" />
+        </binding>
+      </netTcpBinding>
+    </bindings>
+    <client>
+      <endpoint address="net.tcp://127.0.0.1:1212/DataServer_Service" binding="netTcpBinding" bindingConfiguration="NetTcpBinding_IWCFService" contract="ServerMess.IWCFService" name="NetTcpBinding_IWCFService" />
+    </client>
+  </system.serviceModel>
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="log4net" publicKeyToken="669e0ddf0bb1aa2a" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-2.0.8.0" newVersion="2.0.8.0" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+</configuration>

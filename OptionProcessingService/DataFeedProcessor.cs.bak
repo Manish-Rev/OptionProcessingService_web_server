@@ -1,0 +1,80 @@
+﻿using OptionProcessingService.FeedClient;
+using OptionProcessingService.ServerMess;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace OptionProcessingService
+{
+
+    public static class DataFeedProcessor
+    {
+
+        private static DataServerClient dataServerClient;
+        private static List<Types.Quote> quoteList = new List<Types.Quote>();
+        public static void Start()
+        {
+            dataServerClient = new DataServerClient();
+            dataServerClient.Start();
+        }
+        public static void SubscribeSymbolList(string symbol)
+        {
+            dataServerClient.SubscribeSymbolList(new List<string> { symbol }, dataServerClient.DataFeed.FirstOrDefault(x => x.Name == "DDF"), Instrument.Equity);
+            dataServerClient.OnNewQuoteResponse += DataServerClient_OnNewQuoteResponse;
+        }
+
+        public static void GetFeed()
+        {
+            List<string> symbols = quoteList.Select(n=>n.Symbol.Name).Distinct().ToList();
+            quoteList = new List<Types.Quote>();
+            foreach(string symbol in symbols)
+            {
+                dataServerClient.SubscribeSymbolList(new List<string> { symbol }, dataServerClient.DataFeed.FirstOrDefault(x => x.Name == "DDF"), Instrument.Equity);
+            }
+            dataServerClient.OnNewQuoteResponse += DataServerClient_OnNewQuoteResponse;
+        }
+
+        private static void DataServerClient_OnNewQuoteResponse(IList<Types.Quote> obj)
+        {
+            foreach (var x in obj)
+            {
+                quoteList.Add(x);
+            }
+        }
+
+        public static void UnSubscribeSymbolList(string sysmbol)
+        {
+            //dataServerClient.OnNewQuoteResponse -= DataServerClient_OnNewQuoteResponse;
+            dataServerClient.UnSubscribeSymbolList(new List<string> { sysmbol }, dataServerClient.DataFeed.FirstOrDefault(x => x.Name == "DDF"), Instrument.Equity);
+        }
+        public static void StopFeed()
+        {
+            dataServerClient.OnNewQuoteResponse -= DataServerClient_OnNewQuoteResponse;
+            //dataServerClient.UnSubscribeSymbolList(new List<string> { sysmbol }, dataServerClient.DataFeed.FirstOrDefault(x => x.Name == "DDF"), Instrument.Equity);
+        }
+        //public static List<Tick> Ticks
+        //{
+        //    get
+        //    {
+        //        return dataServerClient.NewTicks;
+        //    }
+
+        //}
+        public static Dictionary<string, Types.Quote> LastQuotesList
+        {
+            get
+            {
+                return dataServerClient.LastQuotesList;
+            }
+
+        }
+        public static List<Types.Quote> QuoteList
+        {
+            get
+            {
+                return quoteList;
+            }
+        }
+    }
+}

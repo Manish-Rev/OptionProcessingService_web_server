@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2311b3a5-7df5-4cc9-8d5e-67818eadf94a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://127.0.0.1:8732/DataServer_Service/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="65e953d5-902d-41e6-bb2c-a3125fea273b" SourceId="1" SourceUrl="http://127.0.0.1:8732/DataServer_Service/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="f2e9cb21-79bf-4504-a6de-5f30c5b12db0" SourceId="1" SourceUrl="http://127.0.0.1:8732/DataServer_Service/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="ce11270c-8d8f-4f69-a6aa-6b81e04a8e1f" SourceId="1" SourceUrl="http://127.0.0.1:8732/DataServer_Service/mex" />
+    <MetadataFile FileName="CommonObjects.xsd" MetadataType="Schema" ID="0b9fd300-fe8a-4b40-9030-276b8ee4bbe7" SourceId="1" SourceUrl="http://127.0.0.1:8732/DataServer_Service/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0808A0B9-E61C-4B13-A677-A1081F824143}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CommonObjects</RootNamespace>
+    <AssemblyName>CommonObjects</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net40-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Enums\OptionType.cs" />
+    <Compile Include="Enums\OrderState.cs" />
+    <Compile Include="Enums\OrderType.cs" />
+    <Compile Include="Enums\Periodicity.cs" />
+    <Compile Include="Enums\SecurityType.cs" />
+    <Compile Include="Logger\Logger.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Requests\AccountInfoGetRequest.cs" />
+    <Compile Include="Requests\AccountInfoSubscribeRequest.cs" />
+    <Compile Include="Requests\AccountInfoUnsubscribeRequest.cs" />
+    <Compile Include="Requests\AssetsGetRequest.cs" />
+    <Compile Include="Requests\BarsSubscribeRequest.cs" />
+    <Compile Include="Requests\BarsUnsubscribeRequest.cs" />
+    <Compile Include="Requests\HistoryGetRequest.cs" />
+    <Compile Include="Requests\LoginRequest.cs" />
+    <Compile Include="Requests\LogoutRequest.cs" />
+    <Compile Include="Requests\OpenOrdersGetRequest.cs" />
+    <Compile Include="Requests\OpenOrdersSubscribeRequest.cs" />
+    <Compile Include="Requests\OpenOrdersUnsubscribeRequest.cs" />
+    <Compile Include="Requests\OrderCancelRequest.cs" />
+    <Compile Include="Requests\OrderHistoryGetRequest.cs" />
+    <Compile Include="Requests\OrderHistorySubscribeRequest.cs" />
+    <Compile Include="Requests\OrderHistoryUnsubscribeRequest.cs" />
+    <Compile Include="Requests\OrderPlaceRequest.cs" />
+    <Compile Include="Requests\QuotesSubscribeRequest.cs" />
+    <Compile Include="Requests\QuotesUnsubscribeRequest.cs" />
+    <Compile Include="Requests\RegistrationRequest.cs" />
+    <Compile Include="Responses\AccountInfoGetResponse.cs" />
+    <Compile Include="Responses\AccountInfoSubscribeResponse.cs" />
+    <Compile Include="Responses\AssetsGetResponse.cs" />
+    <Compile Include="Responses\BarsSubscribeResponse.cs" />
+    <Compile Include="Responses\ErrorResponse.cs" />
+    <Compile Include="Responses\HistoryGetResponse.cs" />
+    <Compile Include="Responses\LoginResponse.cs" />
+    <Compile Include="Responses\LogoutResponse.cs" />
+    <Compile Include="Responses\OpenOrdersGetResponse.cs" />
+    <Compile Include="Responses\OpenOrdersSubscribeResponse.cs" />
+    <Compile Include="Responses\OrderCancelResponse.cs" />
+    <Compile Include="Responses\OrderHistoryGetResponse.cs" />
+    <Compile Include="Responses\OrderHistorySubscribeResponse.cs" />
+    <Compile Include="Responses\OrderPlaceResponse.cs" />
+    <Compile Include="Responses\OrderExecutionResponse.cs" />
+    <Compile Include="Responses\QuotesSubscribeResponse.cs" />
+    <Compile Include="Responses\RegistrationResponse.cs" />
+    <Compile Include="Types\Account.cs" />
+    <Compile Include="Types\Asset.cs" />
+    <Compile Include="Types\Bar.cs" />
+    <Compile Include="Types\Bars.cs" />
+    <Compile Include="Types\CreditCard.cs" />
+    <Compile Include="Types\Message.cs" />
+    <Compile Include="Types\Order.cs" />
+    <Compile Include="Types\Quote.cs" />
+    <Compile Include="Types\Symbol.cs" />
+    <Compile Include="Types\User.cs" />
+    <Compile Include="Unitity\TimestampUtility.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

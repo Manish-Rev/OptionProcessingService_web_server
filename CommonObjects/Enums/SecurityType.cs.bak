@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.Text;
+
+namespace OptionProcessingService.Enums
+{
+    [DataContract]
+    public enum SecurityType
+    {
+        [EnumMember(Value = "indices")]
+        Indices = 0,
+
+        [EnumMember(Value = "forex")]
+        Forex = 1,
+
+        [EnumMember(Value = "stocks")]
+        Stocks = 2,
+
+        [EnumMember(Value = "commodities")]
+        Commodities = 3
+    }
+}
